@@ -2,8 +2,8 @@
 # Here we import node image into container which gives us everything we need to build this express app
 FROM node
 
-# Creates `app` as the root directory in the container's virtual filesystem
-WORKDIR /app
+# Creates `server` as the root directory in the container's virtual filesystem
+WORKDIR /server
 
 # Copies the package.json files from local directory, into container's /app/ directory
 COPY package*.json /app/
@@ -18,7 +18,7 @@ COPY . /app/
 
 # Expose port for app to bind to
 # Make sure to update config to use 8081
-EXPOSE 8081
+EXPOSE 8080
 
 # Starts server.js (node server.js)
 CMD ["node", "server.js"]
