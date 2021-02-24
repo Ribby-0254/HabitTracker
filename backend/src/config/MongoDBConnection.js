@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
 export default class {
+    /**
+     * Used to setup MongoDB driver
+     */
     constructor(){}
 
     connect(){

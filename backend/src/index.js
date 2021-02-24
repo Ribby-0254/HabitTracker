@@ -1,12 +1,10 @@
-const express = require("express");
-//const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const app = express();
+import Bootstrap from './config/Bootstrap.js'
 
+const app = new Bootstrap();
 
-const port = process.env.PORT || 8080;
-console.log("port", process.env.PORT);
+app.start();
 
-const server = app.listen(port, () => console.log(`Listening on port ${port}...`));
-
-module.exports = server;
+// listens for CTRL-C, and then closes application gracefully
+process.on('SIGINT', () => {
+    app.close();
+});
