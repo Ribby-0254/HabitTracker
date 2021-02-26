@@ -2,7 +2,7 @@
 # Here we import node image into container which gives us everything we need to build this express app
 FROM node
 
-# Creates `server` as the root directory in the container's virtual filesystem
+# Instructs Docker to use this path as the default location for all subsequent commands
 WORKDIR /server
 
 # Copies the package.json files from local directory, into container's /app/ directory
@@ -13,12 +13,11 @@ COPY package*.json /app/
 # RUN npm ci --only=production
 RUN npm install
 
-# Copy local server files into container directory
+# Copy local server files into the image
 COPY . /app/
 
 # Expose port for app to bind to
-# Make sure to update config to use 8081
-EXPOSE 8080
+EXPOSE 5000
 
 # Starts server.js (node server.js)
-CMD ["node", "server.js"]
+CMD ["npm", "start"]

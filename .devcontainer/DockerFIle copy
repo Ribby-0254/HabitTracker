@@ -1,6 +1,6 @@
 FROM node
 
-WORKDIR /react-app
+WORKDIR /react-app/src
 
 COPY package*.json ./
 

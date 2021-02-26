@@ -1,0 +1,31 @@
+version: "3"
+services:
+  react-app:
+    build: ./frontend/.docker
+    container_name: habit-tracker-react-client
+    stdin_open: : true
+    ports:
+      - "3000:3000"
+    depends_on: 
+      api-server
+
+  api-server:
+    container_name: habit-tracker-express-backend
+    build: ./backend/.docker
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: habit-tracker-mongodb-database
+    image: mongo
+    ports:
+    - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+# persists data after container exits
+volumes:
+  mongo-data:
+    driver: local
