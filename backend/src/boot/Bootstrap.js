@@ -6,8 +6,8 @@ export default class {
      * Used to bootstrap application
      */
     constructor(){
-        ///**@readonly*/
-        //this.db = new Database();
+        /**@readonly*/
+        this.db = new Database();
         /**@readonly*/
         this.server = new Server();
         this.app = undefined;
@@ -19,7 +19,7 @@ export default class {
      */
     async start(){
         try{
-            //await this.db.connect();
+            await this.db.connect();
             this.app = await this.server.start();
         }
         catch(err){

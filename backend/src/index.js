@@ -1,4 +1,4 @@
-import Bootstrap from './config/Bootstrap.js'
+import Bootstrap from './boot/Bootstrap.js'
 
 const app = new Bootstrap();
 

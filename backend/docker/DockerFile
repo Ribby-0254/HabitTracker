@@ -6,7 +6,7 @@ FROM node
 WORKDIR /server
 
 # Copies the package.json files from local directory, into container's /app/ directory
-COPY package*.json /app/
+COPY package*.json ./
 
 # Install dependencies defined in package.json
 # Production, replace with:
@@ -14,7 +14,7 @@ COPY package*.json /app/
 RUN npm install
 
 # Copy local server files into the image
-COPY . /app/
+COPY . .
 
 # Expose port for app to bind to
 EXPOSE 5000

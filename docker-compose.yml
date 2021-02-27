@@ -1,17 +1,21 @@
 version: "3"
 services:
   react-app:
-    build: ./frontend/.docker
     container_name: habit-tracker-react-client
-    stdin_open: : true
+    build: 
+      context: ./frontend
+      dockerfile: ./docker/DockerFile
+    stdin_open: true
     ports:
       - "3000:3000"
     depends_on: 
-      api-server
+      - api-server
 
   api-server:
     container_name: habit-tracker-express-backend
-    build: ./backend/.docker
+    build: 
+      context: ./backend
+      dockerfile: ./docker/DockerFile
     ports:
       - "5000:5000"
     depends_on:
