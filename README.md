@@ -21,19 +21,38 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-- Docker 
+- [NodeJs](https://nodejs.org/en/download/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+- [MongoDB](https://www.mongodb.com/try/download/community)
+
+*If using Docker, then you only need the following:*
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker-Compose](https://docs.docker.com/compose/install/)
 
 ### Installing
 
-*placeholder text*
+* Clone this repo into local workspace
+* Create `dev.env` file in `/backend/env` directory with the following properties
+```
+PORT=<enter HTTP server port here>   Ex: PORT=8080
+```
+
+### Running the apps
+
+* **Client**: See instructions [here](frontend/README.md)
+
+* **Server** - See instructions [here](backend/README.md)
+
+* *If using docker:*
+  * From your project directory, start up your application by running `docker-compose up` in terminal
 
 ## Running the tests
 
-*placeholder text*
+*Not implemented yet...*
 
 ## Deployment
 
-*placeholder text*
+*Not implemented yet...*
 
 ## Built With
 
@@ -49,12 +68,12 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Authors
 
-*placeholder text*
+*Not implemented yet...*
 
 ## License
 
-*placeholder text*
+*Not implemented yet...*
 
 ## Acknowledgements
 
-*placeholder text*
+*Not implemented yet...*
