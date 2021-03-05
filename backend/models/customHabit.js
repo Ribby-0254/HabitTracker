@@ -4,7 +4,6 @@ const { Mongoose } = require("mongoose");
 const customHabitsSchema = new mongoose.Schema({
     name:{
         type:String,
-        isRequired:true
     },
     description:{
         type:String,
