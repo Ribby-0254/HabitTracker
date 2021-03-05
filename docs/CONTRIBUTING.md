@@ -4,44 +4,55 @@ The main purpose of this project is to help project members in their webdev lear
 
 ## Summary
 
-*Insert links here*
+* [Code of Conduct](#code-of-conduct)
+* [Contributing guidelines](#contributing-guidelines)
 
 ## Code of Conduct
 
 By participating and contributing to this project, you agree to uphold these rules:
 
-- Be respectful to team members and any other project participants
-- Give credit to the appropiate people and not wrongfully copy/ take work that you did not do, as your own
-- Follow the guidelines declared in this document and other project documentation
-- Follow the Code of Conduct guidelines from [contributor-covenant.org](https://www.contributor-covenant.org/version/1/4/code-of-conduct/)
+- Give credit where credit is due
+- Be respectful to all project participants
+- Follow the `Code of Conduct` from [contributor-covenant.org](https://www.contributor-covenant.org/version/1/4/code-of-conduct/)
 
 ## Contributing guidelines
 
 Contributions are made to this repo via Issues, Pull Requests (PRs), Github Project board tasks, and discord [server](https://discord.gg/E4ADPxFYjg)
 
-## Issues
+### Issues
 
-The main uses of issues:
+**Purpose**:
 
-- To track project tasks and features
-- To document whatever code a member is working on that is not part of the project tasks and features
-- To document any critical issues and bugs that need to be fixed
-- To propose any new features for the project to pursue
-- To track member's efforts in researching solutions for project-related issues and topics
+- Tracking project tasks and features
+- Documenting critical issues, bugs, and other concerns
+- Tracking topics/ questions that need to be researched
+- For proposing new features, suggestions, or enhancements
+- Tracking work that is not directly part of the project tasks and features
 
-Some guidelines for issues:
 
-- Try to narrow down the issue to one change/ task/ problem, as much as possible
-  * Your issue should ideally be small enough to enact only one or two "changes" on the code base
-- Try to include the requirements/ steps your issue seeks to resolve, in the issue body
-  * Doing so will make it easier for the code review to understand the purpose of the issue and decide whether or not the pull request satisfies the issues requirements
-- Make you issue detailed and clear enough to understand
-- Use labels for your issues
-  - `critical issue` - for bugs or issues
-  - `documentation` - supplementary materials that provide guidance to the project (ex: UML diagrams, mockups, etc)
-  - `enhancements` - for suggesting new features for the project
-  - `frontend` - used to denote issue is for frontend only
-  - `backend` - used to denote issue is for backend only
-  - `project-meta` - anything related to project configuration, operations, and devops
-  - `question` - for any project-related questions that need to researched; solve this issue by dicussing what you learned in discord or through other means
-  - `good first issue` - for any issues easy enough for beginners to do; this project is for learning, and such there will be small, easy tasks created for members who are new to software dev and want to learn
+**Guidelines**:
+
+- Narrow down the issue to one change, task, problem or concern (as much as possible)
+- Include the requirements or steps that needs to be performed to resolve the issue
+- Using labels:
+  - `good first issue` - issues appropiate for those new to webdev to solve
+  - `critical issue`   - for reporting critical bugs or issues
+  - `documentation`    - any material that provides information on project related concerns (ex: UML diagrams, mockups, etc)
+  - `enhancements`     - for suggesting new features for the project
+  - `project-meta`     - any material that is related to project configuration, operations, and devops
+  - `question`         - for any project-related questions that need to researched
+  - `frontend`         - used to denote issue is for frontend only
+  - `backend`          - used to denote issue is for backend only
+
+### Pull Requests (PR)
+
+**Guidelines**
+- PRs must be associated with an issue
+- PRs should only address ONE project related concern
+- If PR is rejected, code reviewer must provide reason for rejection
+- PRs must be reviewed and tested* (*unless the code is small enough to not require testing*)
+  - To test the code, code reviewer must pull the PR, run the application, and run unit tests
+- Code reviewer should not do any fixes to the PR before letting the PR author do it themselves
+
+
+ 
