@@ -14,7 +14,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy local server files into the image
-COPY . .
+COPY . /server
 
 # Expose port for app to bind to
 EXPOSE 5000

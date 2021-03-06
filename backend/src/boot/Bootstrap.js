@@ -7,7 +7,7 @@ export default class {
      */
     constructor(){
         /**@readonly*/
-        this.db = new Database();
+        this.db = new Database(`mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`);
         /**@readonly*/
         this.server = new Server();
         this.app = undefined;
@@ -19,7 +19,7 @@ export default class {
      */
     async start(){
         try{
-            await this.db.connect();
+            //await this.db.connect();
             this.app = await this.server.start();
         }
         catch(err){
