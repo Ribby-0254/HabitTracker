@@ -14,10 +14,10 @@ COPY package*.json ./
 RUN npm install
 
 # Copy local server files into the image
-COPY . /server
+COPY . .
 
 # Expose port for app to bind to
 EXPOSE 5000
 
 # Starts server.js (node server.js)
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
