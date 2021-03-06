@@ -23,9 +23,6 @@ See deployment for notes on how to deploy the project on a live system.
 
 - [NodeJs](https://nodejs.org/en/download/)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-- [MongoDB](https://www.mongodb.com/try/download/community)
-
-*If using Docker, then you only need the following:*
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker-Compose](https://docs.docker.com/compose/install/)
 
@@ -34,17 +31,25 @@ See deployment for notes on how to deploy the project on a live system.
 * Clone this repo into local workspace
 * Create `dev.env` file in `/backend/env` directory with the following properties
 ```
-PORT=<enter HTTP server port here>   Ex: PORT=8080
+PORT=                Ex: PORT=8080
+MONGO_HOSTNAME=      Ex: MONGO_HOSTNAME=localhost
+MONGO_DB=            Ex: MONGO_DB=habittracker
+MONGO_PORT=          Ex: MONGO_PORT=27017
 ```
 
 ### Running the apps
 
-* **Client**: See instructions [here](frontend/README.md)
+1. Start Docker container for MongoDB
+  * In project root directory, run the command: `docker-compose build`
+  * Then run the command: `docker-compose up -d`
+  * Run command :`docker ps -a` to verify mongodb is running
+  * Command for stopping mongodb container (WARNING: will stop all running containers): `docker stop $(docker ps -aq)`
 
-* **Server** - See instructions [here](backend/README.md)
+2. Run the React App (*See instructions [here](frontend/README.md)*)
 
-* *If using docker:*
-  * From your project directory, start up your application by running `docker-compose up` in terminal
+3. Run the Express server (*See instructions [here](backend/README.md)*)
+
+
 
 ## Running the tests
 
