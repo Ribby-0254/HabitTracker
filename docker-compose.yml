@@ -1,36 +1,18 @@
 version: "3"
 services:
-  react-app:
-    container_name: habit-tracker-react-client
-    build: 
-      context: ./frontend
-      dockerfile: ./docker/DockerFile
-    stdin_open: true
-    ports:
-      - "3000:3000"
-    depends_on: 
-      - api-server
-    restart: always
-
-  api-server:
-    container_name: habit-tracker-express-backend
-    build: 
-      context: ./backend
-      dockerfile: ./docker/DockerFile
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mongo
-    restart: always
-
-  mongo:
-    container_name: habit-tracker-mongodb-database
-    image: mongo
-    ports:
-    - "27017:27017"
+  mongodb:
+    build:
+      context: ./data
+      dockerfile: ./Dockerfile
+    container_name: mongodb
+    environment:
+    - PUID=1000
+    - PGID=1000
     volumes:
-      - mongo-data:/data/db
-    restart: always
+    - ./data/db:/data/mongodb
+    ports:
+    - 27017:27017
+    restart: unless-stopped
 
 # persists data after container exits
 volumes:

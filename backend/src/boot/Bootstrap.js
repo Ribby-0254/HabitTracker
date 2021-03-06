@@ -19,7 +19,7 @@ export default class {
      */
     async start(){
         try{
-            //await this.db.connect();
+            await this.db.connect();
             this.app = await this.server.start();
         }
         catch(err){
@@ -32,9 +32,14 @@ export default class {
      * Cleanly closes application
      */
     async close(){
-        await this.app.close(() => console.log("Server terminated"));
-        //await this.database.disconnect();
-        process.exit(0);
+        try{
+            await this.app.close(() => console.log("Server terminated"));
+            await this.db.disconnect();
+            process.exit(0);
+        } catch(err){
+            console.error(err);
+            process.exit(1);
+        }
     }
 
 }
