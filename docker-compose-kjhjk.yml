@@ -1,7 +1,7 @@
 version: "3"
 services:
   react-app:
-    container_name: habit-tracker-react-client
+    container_name: ht-react
     build: 
       context: ./frontend
       dockerfile: ./docker/DockerFile
@@ -13,7 +13,7 @@ services:
     restart: always
 
   api-server:
-    container_name: habit-tracker-express-backend
+    container_name: ht-express
     build: 
       context: ./backend
       dockerfile: ./docker/DockerFile
@@ -24,12 +24,12 @@ services:
     restart: always
 
   mongo:
-    container_name: habit-tracker-mongodb-database
+    container_name: ht-mongo
     image: mongo
     ports:
     - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./data/db:/data/db
     restart: always
 
 # persists data after container exits

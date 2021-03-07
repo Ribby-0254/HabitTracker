@@ -9,7 +9,7 @@ export default class {
         /**@readonly*/
         this.db = new Database(`mongodb://${process.env.MONGO_HOSTNAME}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`);
         /**@readonly*/
-        this.server = new Server();
+        this.server = new Server(process.env.PORT);
         this.app = undefined;
     }
 
@@ -19,7 +19,7 @@ export default class {
      */
     async start(){
         try{
-            //await this.db.connect();
+            await this.db.connect();
             this.app = await this.server.start();
         }
         catch(err){
@@ -33,7 +33,7 @@ export default class {
      */
     async close(){
         await this.app.close(() => console.log("Server terminated"));
-        //await this.database.disconnect();
+        await this.database.disconnect();
         process.exit(0);
     }
 
