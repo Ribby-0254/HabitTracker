@@ -32,9 +32,14 @@ export default class {
      * Cleanly closes application
      */
     async close(){
-        await this.app.close(() => console.log("Server terminated"));
-        await this.database.disconnect();
-        process.exit(0);
+        try{
+            await this.app.close(() => console.log("Server terminated"));
+            await this.db.disconnect();
+            process.exit(0);
+        } catch(err){
+            console.error(err);
+            process.exit(1);
+        }
     }
 
 }

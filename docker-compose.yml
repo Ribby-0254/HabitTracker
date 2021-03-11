@@ -4,10 +4,10 @@ services:
     container_name: ht-react
     build: 
       context: ./frontend
-      dockerfile: ./docker/DockerFile
+      dockerfile: Dockerfile
     stdin_open: true
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on: 
       - api-server
     restart: always
@@ -16,23 +16,23 @@ services:
     container_name: ht-express
     build: 
       context: ./backend
-      dockerfile: ./docker/DockerFile
+      dockerfile: Dockerfile
     ports:
-      - "5000:5000"
-    depends_on:
-      - mongo
+      - 5000:5000
     restart: always
+    depends_on: 
+      - mongo
 
   mongo:
     container_name: ht-mongo
-    image: mongo
+    build:
+      context: ./data
+      dockerfile: ./Dockerfile
+    environment:
+      - PUID=1000
+      - PGID=1000
     ports:
-    - "27017:27017"
+      - 27017:27017
     volumes:
-      - ./data/db:/data/db
-    restart: always
-
-# persists data after container exits
-volumes:
-  mongo-data:
-    driver: local
+      - ./data/db:/data/mongodb
+    restart: unless-stopped
