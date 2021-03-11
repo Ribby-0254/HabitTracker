@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mongodb:
+    build:
+      context: ./data
+      dockerfile: ./Dockerfile
+    container_name: mongo
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped

@@ -4,14 +4,16 @@ export default class {
     /**
      * Used to setup MongoDB driver
      */
-    constructor(){}
+    constructor(url){
+        this.url = url;
+    }
 
     connect(){
-        console.log("Establishing connection to mongoDB database...");
-        return mongoose.connect('INSERT_URL_HERE', {
+        console.log(`Establishing connection to mongoDB database at url: ${this.url}`);
+        return mongoose.connect(this.url, {
                 useNewUrlParser: true
             }).catch(err => {
-                console.error("Error connecting to database!");
+                console.error(`Error connecting to database at url: ${this.url}!`);
                 throw err;
             });
     }

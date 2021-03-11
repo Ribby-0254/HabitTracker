@@ -4,9 +4,15 @@ export default class Server{
     /**
      * Used to setup HTTP server
      */
-    constructor(){
+    constructor(port){
+        this.port = port;
         /** @readonly */
         this.app = express();
+    }
+
+    // Temporary, remove later - Ribba, March 6
+    homePage(){
+        this.app.get('/', (req, res) => res.send("hello world"));
     }
 
     /**
@@ -17,15 +23,17 @@ export default class Server{
     start(){
         return new Promise(
             (resolve, reject) => {
-                const http = this.app.listen(process.env.PORT, "localhost", () => {
+                this.homePage();
+                const http = this.app.listen(this.port, () => {
                     const { address, port } = http.address();
                     console.log(`Server running on localhost:${port}`);
                     resolve(http);
                 }).on('error', (err) => {
-                    console.error("Error in ApiServer.js!");
+                    console.error("Error in Server.js!");
                     reject(err);
                 })
             }
         );
+
     }
 }
