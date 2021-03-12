@@ -18,8 +18,8 @@ export default class {
         // check if otherEntity is typeof Entity
         if(otherEntity instanceof Entity === false) return false;
 
-        // use id to determine if same object
-        return otherEntity.id  ? (otherEntity.id === this.id)? (this === otherEntity);
+        // check if id exists, then check id is equal to this.id or check if this is the same object as otherEntity
+        return otherEntity.id  ? (this.idEquals(otherEntity.id)):(this === otherEntity);
 
     }
 
